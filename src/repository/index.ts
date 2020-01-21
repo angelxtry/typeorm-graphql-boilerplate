@@ -1,6 +1,7 @@
 import { getConnectionOptions, createConnection, Connection } from 'typeorm';
 
-import { UserRepository } from './UserRepository';
+import { UserRepository } from './User';
+import { FollowerRepository } from './Follower/FollowerRepository';
 
 let connection: Connection;
 
@@ -15,5 +16,8 @@ const connectDB = async () => {
 
 export const getUserRepository = (): UserRepository =>
   connection.getCustomRepository(UserRepository);
+
+export const getFollowerRepository = (): FollowerRepository =>
+  connection.getCustomRepository(FollowerRepository);
 
 export default connectDB;
